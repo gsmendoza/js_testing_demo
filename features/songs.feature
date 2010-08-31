@@ -18,3 +18,12 @@ Feature: Manage songs
     And no song is playing
     When I click a song
     Then I should see that the song is playing
+
+  @javascript
+  Scenario: Clicking a song should replace the song currently playing.
+    Given I have some songs
+    And I am in the Songs page
+    And song A is playing
+    When I click song B
+    Then I should see that song B is playing
+
