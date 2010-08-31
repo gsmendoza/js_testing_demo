@@ -21,7 +21,7 @@ describe("PlayerWidget", function(){
 
   describe("widget.refresh", function(){
     it("should update the artist, title and clear the message", function(){
-      loadFixtures('spec/javascripts/fixtures/songs-index.html');
+      loadFixtures('tmp/js_dom_fixtures/songs-index.html');
       var widget = new PlayerWidget({'dom': $('.player')});
 
       widget.dom().find('.message').html('some old error');
@@ -37,7 +37,7 @@ describe("PlayerWidget", function(){
     });
 
     it("should set the status to Playing if it is playing a song", function(){
-      loadFixtures('spec/javascripts/fixtures/songs-index.html');
+      loadFixtures('tmp/js_dom_fixtures/songs-index.html');
       var widget = new PlayerWidget({'dom': $('.player')});
       widget.player().raw.is_playing = true;
 
@@ -50,7 +50,7 @@ describe("PlayerWidget", function(){
     });
 
     it("should set the status to Paused if its song is paused", function(){
-      loadFixtures('spec/javascripts/fixtures/songs-index.html');
+      loadFixtures('tmp/js_dom_fixtures/songs-index.html');
       var widget = new PlayerWidget({'dom': $('.player')});
       widget.player().raw.is_playing = false;
 
@@ -77,7 +77,7 @@ describe("PlayerWidget", function(){
 
   describe("widget.song_from_event(event)", function(){
     it("should return a song representing the event's current target", function(){
-      loadFixtures('spec/javascripts/fixtures/songs-index.html');
+      loadFixtures('tmp/js_dom_fixtures/songs-index.html');
 
       var $song = $('.song').first();
       expect($song.find('a').text()).toBeTruthy();
@@ -109,7 +109,7 @@ describe("PlayerWidget", function(){
     });
 
     it("should say that no song is playing if such is the case", function(){
-      loadFixtures('spec/javascripts/fixtures/songs-index.html');
+      loadFixtures('tmp/js_dom_fixtures/songs-index.html');
 
       expect($('.player .field .message')).toHaveText('');
 
@@ -140,7 +140,7 @@ describe("PlayerWidget", function(){
     });
 
     it("should say that a song is already playing if such is the case", function(){
-      loadFixtures('spec/javascripts/fixtures/songs-index.html');
+      loadFixtures('tmp/js_dom_fixtures/songs-index.html');
       var song = new Song({'artist': 'Merle Travis', 'title': 'Sixteen tons'});
 
       expect($('.player .field .message')).toHaveText('');
