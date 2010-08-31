@@ -107,5 +107,36 @@ describe("PlayerWidget", function(){
       expect(widget.player().pause).toHaveBeenCalled();
       expect(widget.refresh).toHaveBeenCalled();
     });
+
+    it("should say that no song is playing if such is the case", function(){
+      loadFixtures('spec/javascripts/fixtures/songs-index.html');
+
+      expect($('.player .field .message')).toHaveText('');
+
+      var widget = new PlayerWidget({'dom': $('.player')});
+      expect(widget.song()).toBeFalsy();
+
+      widget.pause();
+
+      expect($('.player .field .message')).toHaveText('No song is playing');
+    });
+  });
+
+  describe("widget.resume", function(){
+    it("should resume the song if it is paused", function(){
+      var song = new Song({'artist': 'Merle Travis', 'title': 'Sixteen tons'});
+
+      var widget = new PlayerWidget({'dom': $('<div><div/>')});
+      widget.play(song);
+      widget.pause();
+
+      spyOn(widget.player(), 'resume');
+      spyOn(widget, 'refresh')
+
+      widget.resume();
+
+      expect(widget.player().resume).toHaveBeenCalled();
+      expect(widget.refresh).toHaveBeenCalled();
+    });
   });
 });

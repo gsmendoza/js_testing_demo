@@ -15,7 +15,12 @@ Player.prototype.make_favorite = function(){
 };
 
 Player.prototype.pause = function(){
-  this.raw.is_playing = false;
+  if (this.is_playing()){
+    this.raw.is_playing = false;
+  }
+  else {
+    throw new Error("No song is playing");
+  }
 };
 
 Player.prototype.play = function(song) {

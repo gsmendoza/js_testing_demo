@@ -23,6 +23,11 @@ PlayerWidget.prototype.initialize_events = function(){
     widget.pause();
     event.preventDefault();
   });
+
+  this.dom().find('.controls .action.resume').click(function(event){
+    widget.resume();
+    event.preventDefault();
+  });
 };
 
 PlayerWidget.prototype.message = function(){
@@ -30,8 +35,13 @@ PlayerWidget.prototype.message = function(){
 };
 
 PlayerWidget.prototype.pause = function(){
-  this.player().pause();
-  this.refresh();
+  try {
+    this.player().pause();
+    this.refresh();
+  }
+  catch(error){
+    this.message().html(error.message);
+  }
 };
 
 PlayerWidget.prototype.play = function(song){
@@ -54,6 +64,11 @@ PlayerWidget.prototype.refresh = function(){
     this.dom().find('.field .status').html('Paused');
   }
   this.message().html('');
+};
+
+PlayerWidget.prototype.resume = function(){
+    this.player().resume();
+    this.refresh();
 };
 
 PlayerWidget.prototype.song = function(){

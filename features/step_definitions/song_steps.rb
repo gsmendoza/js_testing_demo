@@ -31,7 +31,18 @@ When /^I click the Pause button$/ do
   click_button 'Pause'
 end
 
+When /^I click the Play button$/ do
+  click_button 'Play'
+end
+
 When /^I click a song$/ do
+  song_title = document.css('.player .song .title')[0].text
+  song_title.should_not be_blank
+
+  click_link song_title
+end
+
+When /^I click song A$/ do
   song_title = document.css('.player .song .title')[0].text
   song_title.should_not be_blank
 
@@ -53,24 +64,29 @@ Then /^I should see the player widget$/ do
   document.css('.player').should have(1).player
 end
 
-Then /^I should see that the song is playing$/ do
-  document.css('.player .field .artist').text.should_not be_blank
-  document.css('.player .field .title').text.should_not be_blank
+Then /^I should see that song A is playing$/ do
+  song_title = document.css('.player .song .title')[0].text
+  document.css('.player .field .title').text.should == song_title
   document.css('.player .field .status').text.should == 'Playing'
   document.css('.player .field .message').text.should be_blank
 end
 
 Then /^I should see that song A is paused$/ do
   song_title = document.css('.player .song .title')[0].text
-
   document.css('.player .field .title').text.should == song_title
   document.css('.player .field .status').text.should == 'Paused'
+  document.css('.player .field .message').text.should be_blank
 end
 
 Then /^I should see that song B is playing$/ do
   song_title = document.css('.player .song .title')[1].text
   document.css('.player .field .title').text.should == song_title
 end
+
+Then /^I should see the error "([^\"]*)"$/ do |error|
+  document.css('.player .field .message').text[0] == error
+end
+
 Then /^I should see the songs$/ do
   document.css('.player .songs .song').should_not be_empty
 end

@@ -16,8 +16,8 @@ Feature: Manage songs
     Given I have some songs
     And I am in the Songs page
     And no song is playing
-    When I click a song
-    Then I should see that the song is playing
+    When I click song A
+    Then I should see that song A is playing
 
   @javascript
   Scenario: Clicking a song should replace the song currently playing.
@@ -42,3 +42,19 @@ Feature: Manage songs
     And song A is paused
     When I click song B
     Then I should see that song B is playing
+
+  @javascript
+  Scenario: Cannot click the pause button if there is no song playing.
+    Given I have some songs
+    And I am in the Songs page
+    And no song is playing
+    When I click the Pause button
+    Then I should see the error "No song is playing"
+
+  @javascript
+  Scenario: Clicking the play button should resume a paused song.
+    Given I have some songs
+    And I am in the Songs page
+    And song A is paused
+    When I click the Play button
+    Then I should see that song A is playing
