@@ -22,6 +22,11 @@ Given /^song A is playing$/ do
   click_link song_title
 end
 
+Given /^song A is paused$/ do
+  Given "song A is playing"
+  click_button 'Pause'
+end
+
 When /^I click the Pause button$/ do
   click_button 'Pause'
 end

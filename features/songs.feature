@@ -34,3 +34,11 @@ Feature: Manage songs
     And song A is playing
     When I click the Pause button
     Then I should see that song A is paused
+
+  @javascript
+  Scenario: Clicking a song should replace the song currently paused.
+    Given I have some songs
+    And I am in the Songs page
+    And song A is paused
+    When I click song B
+    Then I should see that song B is playing
