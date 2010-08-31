@@ -138,5 +138,19 @@ describe("PlayerWidget", function(){
       expect(widget.player().resume).toHaveBeenCalled();
       expect(widget.refresh).toHaveBeenCalled();
     });
+
+    it("should say that a song is already playing if such is the case", function(){
+      loadFixtures('spec/javascripts/fixtures/songs-index.html');
+      var song = new Song({'artist': 'Merle Travis', 'title': 'Sixteen tons'});
+
+      expect($('.player .field .message')).toHaveText('');
+
+      var widget = new PlayerWidget({'dom': $('.player')});
+      widget.play(song);
+
+      widget.resume();
+
+      expect($('.player .field .message')).toHaveText('song is already playing');
+    });
   });
 });

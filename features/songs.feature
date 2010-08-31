@@ -58,3 +58,11 @@ Feature: Manage songs
     And song A is paused
     When I click the Play button
     Then I should see that song A is playing
+
+  @javascript
+  Scenario: Cannot click the play button if there is a song playing.
+    Given I have some songs
+    And I am in the Songs page
+    And song A is playing
+    When I click the Play button
+    Then I should see the error "song is already playing"

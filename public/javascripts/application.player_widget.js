@@ -67,8 +67,13 @@ PlayerWidget.prototype.refresh = function(){
 };
 
 PlayerWidget.prototype.resume = function(){
+  try {
     this.player().resume();
     this.refresh();
+  }
+  catch(error){
+    this.message().html(error.message);
+  }
 };
 
 PlayerWidget.prototype.song = function(){
