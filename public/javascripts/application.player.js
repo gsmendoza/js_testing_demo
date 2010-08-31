@@ -15,11 +15,15 @@ Player.prototype.make_favorite = function(){
 };
 
 Player.prototype.pause = function(){
+  if (! this.currently_playing_song()){
+    throw new Error("No song is playing");
+  }
+
   if (this.is_playing()){
     this.raw.is_playing = false;
   }
   else {
-    throw new Error("No song is playing");
+    throw new Error("Song is already paused");
   }
 };
 
@@ -29,8 +33,12 @@ Player.prototype.play = function(song) {
 };
 
 Player.prototype.resume = function(){
+  if (! this.currently_playing_song()){
+    throw new Error("No song is playing");
+  }
+
   if (this.is_playing()) {
-    throw new Error("song is already playing");
+    throw new Error("Song is already playing");
   }
   this.raw.is_playing = true;
 };

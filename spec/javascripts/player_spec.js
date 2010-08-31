@@ -47,12 +47,12 @@ describe("Player", function() {
 
   //demonstrates use of expected exceptions
   describe("#resume", function() {
-    it("should throw an exception if song is already playing", function() {
+    it("should throw an exception if Song is already playing", function() {
       player.play(song);
 
       expect(function() {
         player.resume();
-      }).toThrow("song is already playing");
+      }).toThrow("Song is already playing");
     });
   });
 });

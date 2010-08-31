@@ -108,7 +108,7 @@ describe("PlayerWidget", function(){
       expect(widget.refresh).toHaveBeenCalled();
     });
 
-    it("should say that no song is playing if such is the case", function(){
+    it("should say that there is no song playing if such is the case", function(){
       loadFixtures('tmp/js_dom_fixtures/songs-index.html');
 
       expect($('.player .field .message')).toHaveText('');
@@ -119,6 +119,21 @@ describe("PlayerWidget", function(){
       widget.pause();
 
       expect($('.player .field .message')).toHaveText('No song is playing');
+    });
+
+    it("should say that the song is already paused if such is the case", function(){
+      loadFixtures('tmp/js_dom_fixtures/songs-index.html');
+      var song = new Song({'artist': 'Merle Travis', 'title': 'Sixteen tons'});
+
+      expect($('.player .field .message')).toHaveText('');
+
+      var widget = new PlayerWidget({'dom': $('.player')});
+      widget.play(song);
+      widget.pause(song);
+
+      widget.pause();
+
+      expect($('.player .field .message')).toHaveText('Song is already paused');
     });
   });
 
@@ -139,7 +154,20 @@ describe("PlayerWidget", function(){
       expect(widget.refresh).toHaveBeenCalled();
     });
 
-    it("should say that a song is already playing if such is the case", function(){
+    it("should say that there is no song playing if such is the case", function(){
+      loadFixtures('tmp/js_dom_fixtures/songs-index.html');
+
+      expect($('.player .field .message')).toHaveText('');
+
+      var widget = new PlayerWidget({'dom': $('.player')});
+      expect(widget.song()).toBeFalsy();
+
+      widget.resume();
+
+      expect($('.player .field .message')).toHaveText('No song is playing');
+    });
+
+    it("should say that a Song is already playing if such is the case", function(){
       loadFixtures('tmp/js_dom_fixtures/songs-index.html');
       var song = new Song({'artist': 'Merle Travis', 'title': 'Sixteen tons'});
 
@@ -150,7 +178,7 @@ describe("PlayerWidget", function(){
 
       widget.resume();
 
-      expect($('.player .field .message')).toHaveText('song is already playing');
+      expect($('.player .field .message')).toHaveText('Song is already playing');
     });
   });
 });

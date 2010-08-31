@@ -2,6 +2,7 @@
 # The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
 #
 # Examples:
-#   
-#   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
-#   Major.create(:name => 'Daley', :city => cities.first)
+#
+Song.create(:artist => 'Mississippi John Hurt', :title => 'Candyman')
+Song.create(:artist => 'Robert Johnson', :title => 'Cross Road Blues')
+Song.create(:artist => 'Blind Lemon Jefferson', :title => 'Hot dogs')
