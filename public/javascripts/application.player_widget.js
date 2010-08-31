@@ -18,10 +18,20 @@ PlayerWidget.prototype.initialize_events = function(){
     widget.play(PlayerWidget.song_from_event(event));
     event.preventDefault();
   });
+
+  this.dom().find('.controls .action.pause').click(function(event){
+    widget.pause();
+    event.preventDefault();
+  });
 };
 
 PlayerWidget.prototype.message = function(){
   return this.dom().find('.message');
+};
+
+PlayerWidget.prototype.pause = function(){
+  this.player().pause();
+  this.refresh();
 };
 
 PlayerWidget.prototype.play = function(song){

@@ -22,6 +22,10 @@ Given /^song A is playing$/ do
   click_link song_title
 end
 
+When /^I click the Pause button$/ do
+  click_button 'Pause'
+end
+
 When /^I click a song$/ do
   song_title = document.css('.player .song .title')[0].text
   song_title.should_not be_blank
@@ -49,6 +53,13 @@ Then /^I should see that the song is playing$/ do
   document.css('.player .field .title').text.should_not be_blank
   document.css('.player .field .status').text.should == 'Playing'
   document.css('.player .field .message').text.should be_blank
+end
+
+Then /^I should see that song A is paused$/ do
+  song_title = document.css('.player .song .title')[0].text
+
+  document.css('.player .field .title').text.should == song_title
+  document.css('.player .field .status').text.should == 'Paused'
 end
 
 Then /^I should see that song B is playing$/ do

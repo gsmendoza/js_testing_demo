@@ -91,4 +91,21 @@ describe("PlayerWidget", function(){
       expect(result.title()).toEqual($song.find('.title').text());
     });
   });
+
+  describe("widget.pause", function(){
+    it("should pause the song currently playing", function(){
+      var song = new Song({'artist': 'Merle Travis', 'title': 'Sixteen tons'});
+
+      var widget = new PlayerWidget({'dom': $('<div><div/>')});
+      widget.play(song);
+
+      spyOn(widget.player(), 'pause');
+      spyOn(widget, 'refresh')
+
+      widget.pause();
+
+      expect(widget.player().pause).toHaveBeenCalled();
+      expect(widget.refresh).toHaveBeenCalled();
+    });
+  });
 });
