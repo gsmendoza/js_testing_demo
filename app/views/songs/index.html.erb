@@ -1,5 +1,26 @@
 <h1>Listing songs</h1>
 
+<div class="player">
+  <div class="field artist">
+    <label>Artist: </label>
+    <span></span>
+  </div>
+  <div class="field title">
+    <label>Title: </label>
+    <span></span>
+  </div>
+  <div class="field status">
+    <label>Status: </label>
+    <span></span>
+  </div>
+  <div class="field message">
+    <label>Message: </label>
+    <span></span>
+  </div>
+  <%= submit_tag('Play', :class => 'action play') %>
+  <%= submit_tag('Pause', :class => 'action pause') %>
+</div>
+
 <table>
   <tr>
     <th>Artist</th>
