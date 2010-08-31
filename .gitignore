@@ -21,7 +21,6 @@ mkmf.log
 nbproject
 public/javascripts/all.js
 rerun.txt
-spec/spec.opts
 spec/spec.html
 test/file_sandbox/*
 Thumbs.db
