@@ -27,4 +27,5 @@ config.action_mailer.delivery_method = :test
 # like if you have constraints or database-specific column types
 # config.active_record.schema_format = :sql
 
-config.gem 'rspec', :version => '1.3.0'
+config.gem 'jasmine', :version => '0.11.1.0'
+config.gem 'rspec',   :version => '1.3.0'
