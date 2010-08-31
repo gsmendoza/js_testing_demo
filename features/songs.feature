@@ -10,3 +10,11 @@ Feature: Manage songs
     And I should see the player widget
     And the player widget should have buttons to play and pause the current song
     And there should be no song playing
+
+  @javascript
+  Scenario: Clicking a song should play the song.
+    Given I have some songs
+    And I am in the Songs page
+    And no song is playing
+    When I click a song
+    Then I should see that the song is playing

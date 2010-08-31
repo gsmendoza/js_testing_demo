@@ -20,7 +20,6 @@ log/*.log
 mkmf.log
 nbproject
 public/javascripts/all.js
-public/stylesheets/*
 rerun.txt
 spec/spec.opts
 spec/spec.html

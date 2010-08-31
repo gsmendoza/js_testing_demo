@@ -1,36 +1,38 @@
 <h1>Listing songs</h1>
 
 <div class="player">
-  <div class="field artist">
+  <div class="field">
     <label>Artist: </label>
-    <span class="value"></span>
+    <span class="artist"></span>
   </div>
-  <div class="field title">
+  <div class="field">
     <label>Title: </label>
-    <span class="value"></span>
+    <span class="title"></span>
   </div>
-  <div class="field status">
+  <div class="field">
     <label>Status: </label>
-    <span class="value"></span>
+    <span class="status"></span>
   </div>
-  <div class="field message">
+  <div class="field">
     <label>Message: </label>
-    <span class="value"></span>
+    <span class="message"></span>
   </div>
-  <%= submit_tag('Play', :class => 'action play') %>
-  <%= submit_tag('Pause', :class => 'action pause') %>
+  <div class="field controls">
+    <%= submit_tag('Play', :class => 'action resume') %>
+    <%= submit_tag('Pause', :class => 'action pause') %>
+  </div>
+
+  <table class="songs">
+    <tr>
+      <th>Artist</th>
+      <th>Title</th>
+    </tr>
+  <% @songs.each do |song| %>
+    <% content_tag_for(:tr, song) do %>
+      <td class="artist"><%= song.artist %></td>
+      <td class="title"><a href="#<%= dom_id(song) %>" class="action play"><%= song.title %></a></td>
+    <% end %>
+  <% end %>
+  </table>
 </div>
 
-<table class="songs">
-  <tr>
-    <th>Artist</th>
-    <th>Title</th>
-  </tr>
-
-<% @songs.each do |song| %>
-  <% content_tag_for(:tr, song) do %>
-    <td><%=h song.artist %></td>
-    <td><%=h song.title %></td>
-  <% end %>
-<% end %>
-</table>

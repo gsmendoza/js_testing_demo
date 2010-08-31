@@ -1,2 +1,8 @@
-// Place your application-specific JavaScript functions and classes here
-// This file is automatically included by javascript_include_tag :defaults
+App = {};
+
+$(function(){
+  App.player_widgets = [];
+  $('.player').each(function(){
+    App.player_widgets.push(new PlayerWidget({'dom': $(this)}));
+  });
+});
