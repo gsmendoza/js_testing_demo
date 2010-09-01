@@ -25,6 +25,8 @@ Testing
 * `rake jasmine`
 * `rake cucumber`
 
+*Note*: Run `rake spec` first before jasmine so that the controller specs will generate the dom fixtures for the JavaScript tests.
+
 TODO
 ----
 
