@@ -3,53 +3,108 @@
   %head
     %meta{:content => "text/html; charset=iso-8859-1", "http-equiv" => "Content-Type"}/
     %title
-      JavaScript Testing with Jasmine
+      JavaScript testing with Jasmine
 
     = stylesheet_link_tag 'domslides.css'
     = javascript_include_tag "domslides.js"
   %body
     #boundary
       %h1
-        JavaScript Testing with Jasmine
+        JavaScript testing with Jasmine
 
       .slide
         %h2
-          JavaScript Testing with BlueRidge
+          JavaScript testing with BlueRidge
+
       .slide
         %h2
           %span
             JavaScript Testing with
-          %span{:style => 'text-decoration: line-through'}
+          %span.crossed-out
             BlueRidge
+          %span
+
 
       .slide
         %h2
-          JavaScript Testing with Jasmine
+          JavaScript testing with Jasmine
 
       .slide
-        %h2 [Slide 3 title]
+        %h2
+          Who you?
         %ul
-          %li Item 1
+          %li George Mendoza
+          %li Been working with Rails since 2008.
+          %li You can(not) find me at oDesk.
           %li
-            Item 2
-            %ul
-              %li Item 2_1
-              %li Item 2_2
-              %li Item 2_2
-          %li Item 3
-          %li Item 4
-          %li Item 5
+            Really
+            %em
+              got
+            JavaScript only this year.
+          %li
+            Hopefully have
+            %em
+              gotten
+            Rails 3.0 today.
+
       .slide
-        %h2 [Slide 4 title]
+        %h2
+          Installation
+        %pre
+          gem install jasmine
+          \./script/generate jasmine
+          rake jasmine
+
+      .slide
+        %h2
+          Jasmine basics
         %ul
-          %li Item 1
           %li
-            Item 2
+            rspecish syntax - describe, it, beforeEach, afterEach
+          %li
+            expectation matchers
+          %li
+            debugging
+
+      .slide
+        %h2
+          Testing against the DOM
+        %ul
+          %li
+            = link_to 'http://github.com/gsmendoza/js_testing_demo', 'http://github.com/gsmendoza/js_testing_demo'
+          %li
+            Methods
             %ul
-              %li Item 2_1
-              %li Item 2_2
-              %li Item 2_2
-          %li Item 3
-          %li Item 4
-          %li Item 5
-    #footer [Author], [date]
+              %li inline dom fixtures
+              %li
+                static fixtures with
+                = link_to 'jasmine-jquery', 'http://github.com/velesin/jasmine-jquery'
+              %li
+                dynamic fixtures with
+                = link_to 'fixture_generation_methods.rb', 'http://pivotallabs.com/users/jb/blog/articles/1152-javascripttests-bind-reality-'
+
+      .slide
+        %h2
+          Testing events and Ajax testing
+        %ul
+          %li prefer to do this with integration tests
+
+      .slide
+        %h2
+          If we have time...
+        %ul
+          %li stubs and spies
+          %li jslint
+
+      .slide
+        %h2
+          Links
+        %ul
+          %li= link_to 'Jasmine', 'http://pivotal.github.com/jasmine'
+          %li= link_to 'jasmine-jquery', 'http://github.com/velesin/jasmine-jquery'
+          %li= link_to 'fixture_generation_methods.rb', 'http://pivotallabs.com/users/jb/blog/articles/1152-javascripttests-bind-reality-'
+          %li= link_to 'http://github.com/gsmendoza/js_testing_demo', 'http://github.com/gsmendoza/js_testing_demo'
+          %li= link_to 'jslint', 'http://whereisandy.com/code/jslint/'
+
+    #footer
+      George Mendoza, Sept. 11, 2010

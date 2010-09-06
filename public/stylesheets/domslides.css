@@ -191,3 +191,8 @@
     display:block;
   }
 
+/* presentation specific styles */
+
+.crossed-out {
+  text-decoration: line-through
+}
