@@ -1,0 +1,55 @@
+!!! Strict
+%html{:dir => "ltr", :lang => "en"}
+  %head
+    %meta{:content => "text/html; charset=iso-8859-1", "http-equiv" => "Content-Type"}/
+    %title
+      JavaScript Testing with Jasmine
+
+    = stylesheet_link_tag 'domslides.css'
+    = javascript_include_tag "domslides.js"
+  %body
+    #boundary
+      %h1
+        JavaScript Testing with Jasmine
+
+      .slide
+        %h2
+          JavaScript Testing with BlueRidge
+      .slide
+        %h2
+          %span
+            JavaScript Testing with
+          %span{:style => 'text-decoration: line-through'}
+            BlueRidge
+
+      .slide
+        %h2
+          JavaScript Testing with Jasmine
+
+      .slide
+        %h2 [Slide 3 title]
+        %ul
+          %li Item 1
+          %li
+            Item 2
+            %ul
+              %li Item 2_1
+              %li Item 2_2
+              %li Item 2_2
+          %li Item 3
+          %li Item 4
+          %li Item 5
+      .slide
+        %h2 [Slide 4 title]
+        %ul
+          %li Item 1
+          %li
+            Item 2
+            %ul
+              %li Item 2_1
+              %li Item 2_2
+              %li Item 2_2
+          %li Item 3
+          %li Item 4
+          %li Item 5
+    #footer [Author], [date]
