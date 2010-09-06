@@ -6,6 +6,7 @@
     margin:0;
     padding:0;
     font-family:Verdana,Sans-Serif;
+    font-size: 150%;
     color:#000;
     background:#ccf;
   }
@@ -32,6 +33,10 @@
   }
   #footer a{
     color:#000;
+  }
+
+  #footer .body {
+    margin-left: 10px;
   }
 
 /* Class applied to hide the slides and the form */
@@ -111,7 +116,7 @@
 /* Slide styles */
 
   div.slide{
-    background:#fff;
+    background:#ccf;
     padding-bottom:1em;
   }
   p.footnote{
@@ -148,7 +153,7 @@
   }
   h1,#boundary.js h2{
     background:#036;
-    margin:0 0 10px 0;
+    margin:0 0 20px 0;
     color:#fff;
     padding:5px 20px;
     padding-right:215px;
