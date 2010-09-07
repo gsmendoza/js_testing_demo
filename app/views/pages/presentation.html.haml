@@ -14,36 +14,34 @@
 
       .slide
         %h2
-          JavaScript testing with BlueRidge
-
-      .slide
-        %h2
           %span
             JavaScript Testing with
           %span.crossed-out
             BlueRidge
           %span
-
-
-      .slide
-        %h2
-          JavaScript testing with Jasmine
-
-      .slide
-        %h2
-          Who you?
-        %ul
-          %li George Mendoza
-          %li Been working with Rails since 2008.
-          %li You can(not) find me at oDesk.
-          %li Really _got_ JavaScript only this year.
-          %li Hopefully have _gotten_ Rails 3.0 today.
+            Jasmine
 
       .slide
         %h2
           Installation
         %pre
-          = "\ngem install jasmine\n./script/generate jasmine\nrake jasmine"
+          :preserve
+            gem install jasmine
+            \./script/generate jasmine
+            rake jasmine
+
+      .slide
+        %h2
+          Demo App
+        %ul
+          %li
+            = link_to 'http://github.com/gsmendoza/js_testing_demo', 'http://github.com/gsmendoza/js_testing_demo'
+          %li
+            Song
+          %li
+            Player
+          %li
+            Player Widget
 
       .slide
         %h2
@@ -58,34 +56,24 @@
 
       .slide
         %h2
-          Testing against the DOM
+          HTML fixtures
         %ul
           %li
-            = link_to 'http://github.com/gsmendoza/js_testing_demo', 'http://github.com/gsmendoza/js_testing_demo'
+            inline dom fixtures
           %li
-            Methods
-            %ul
-              %li inline dom fixtures
-              %li
-                static fixtures with
-                = link_to 'jasmine-jquery', 'http://github.com/velesin/jasmine-jquery'
-              %li
-                dynamic fixtures with
-                = link_to 'fixture_generation_methods.rb', 'http://pivotallabs.com/users/jb/blog/articles/1152-javascripttests-bind-reality-'
-
-      .slide
-        %h2
-          Testing events and Ajax testing
-        %ul
-          %li prefer to do this with integration tests
+            static fixtures with
+            = link_to 'jasmine-jquery', 'http://github.com/velesin/jasmine-jquery'
+          %li
+            dynamic fixtures with
+            = link_to 'fixture_generation_methods.rb', 'http://pivotallabs.com/users/jb/blog/articles/1152-javascripttests-bind-reality-'
 
       .slide
         %h2
           If we have time...
         %ul
-          %li xdescribe and xit
+          %li Testing events and Ajax
           %li stubs and spies
-          %li jslint
+          %li xdescribe and xit
 
       .slide
         %h2
@@ -95,7 +83,6 @@
           %li= link_to 'jasmine-jquery', 'http://github.com/velesin/jasmine-jquery'
           %li= link_to 'fixture_generation_methods.rb', 'http://pivotallabs.com/users/jb/blog/articles/1152-javascripttests-bind-reality-'
           %li= link_to 'http://github.com/gsmendoza/js_testing_demo', 'http://github.com/gsmendoza/js_testing_demo'
-          %li= link_to 'jslint', 'http://whereisandy.com/code/jslint/'
 
     #footer
       %span.body
