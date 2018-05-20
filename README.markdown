@@ -32,7 +32,7 @@ TODO
 
   Figure out why rake jasmine:ci is not working as expected.
 
-  [Jasmine]: http://pivotal.github.com/jasmine
+  [Jasmine]: https://jasmine.github.io/
   [Capybara]: http://github.com/jnicklas/capybara
   [jasmine-query]: http://github.com/velesin/jasmine-jquery
   [fixture generation methods.rb]: http://pivotallabs.com/users/jb/blog/articles/1152-javascripttests-bind-reality-
